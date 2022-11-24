@@ -15,6 +15,27 @@ const Canvas = ({ name }) => {
     4: [100, 100],
   });
 
+  const changePos = () => {
+    setLocation((prevstate) => {
+      return {
+        ...prevstate,
+        4: [150, 150],
+      };
+    });
+  };
+
+  const addEdge = () => {
+    setEdges((prevstate) => {
+      // console.log(prevstate[4]);
+      return {
+        ...prevstate,
+        4: [...prevstate[4], 1],
+      };
+    });
+  };
+
+  console.log(edges);
+
   const returnedges = () => {
     let curr = Object.keys(edges);
     var res = [];
@@ -37,7 +58,7 @@ const Canvas = ({ name }) => {
 
   let curr = Object.keys(edges);
   let line = returnedges();
-  console.log(line);
+  // console.log(line);
   let listItems = curr.map((number) => {
     return (
       <circle
@@ -67,13 +88,17 @@ const Canvas = ({ name }) => {
     );
   });
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">
-      <g fill="#61DAFB">
-        {line}
-        {listItems}
-        {list2}
-      </g>
-    </svg>
+    <>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">
+        <g fill="#61DAFB">
+          {line}
+          {listItems}
+          {list2}
+        </g>
+      </svg>
+      <button onClick={changePos}>change loc</button>
+      <button onClick={addEdge}>add Node</button>
+    </>
   );
 };
 
