@@ -93,9 +93,9 @@ class Graph extends React.Component {
 function App() {
   return (
     <main className="App-main">
-      {/* <Canvas name="MyDrawing" />
-       */}
-      <Graph name="MyDrawing" />
+      <Canvas name="MyDrawing" />
+
+      {/* <Graph name="MyDrawing" /> */}
     </main>
   );
 }
